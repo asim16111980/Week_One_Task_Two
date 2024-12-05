@@ -1,0 +1,139 @@
+/* This is main css file */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.slider > .imagesContainer > .image {
+  position: absolute;
+  inset: 0 0 0 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+.slider > .imagesContainer > .image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider > .imagesContainer > .image::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, #000 20%, transparent);
+}
+.slider > .imagesContainer > .image.active {
+  opacity: 1;
+  z-index: 10;
+}
+.slider > .arrows {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  padding: 30px;
+  top: 30%;
+  left: 0;
+  z-index: 100;
+}
+.slider > .arrows > button {
+  cursor: pointer;
+  background-color: #eee5;
+  border: none;
+  font-family: monospace;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: x-large;
+  color: #eee;
+  transition: 0.5s;
+}
+.slider > .arrows > button:hover {
+  background-color: #eee;
+  color: black;
+}
+.slider > .dotsContainer {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 20;
+}
+.slider > .dotsContainer > .dot {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: #eee5;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 0.5s;
+}
+.slider > .dotsContainer > .dot.active ,
+.slider > .dotsContainer > .dot:hover {
+  background-color: #eee;
+}
+.slider > .thumbnailsContainer {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  bottom: 20px;
+  z-index: 11;
+  padding: 0 50px;
+  overflow: auto;
+}
+.slider > .thumbnailsContainer::-webkit-scrollbar {
+  width: 0;
+}
+.slider > .thumbnailsContainer > .thumbnail {
+  cursor: pointer;
+  width: 150px;
+  height: 180px;
+  filter: brightness(0.5);
+  transition: 0.5s;
+  flex-shrink: 0;
+  transition: 0.5s;
+}
+.slider > .thumbnailsContainer > .thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.slider > .thumbnailsContainer > .thumbnail.active {
+  filter: brightness(1.5);
+  -webkit-filter: brightness(1.5);
+}
+.slider > .thumbnailsContainer > .thumbnail:hover {
+  filter: brightness(1.5);
+  -webkit-filter: brightness(1.5);
+}
+@media screen and (max-width: 678px) {
+  .slider > .dotsContainer > .dot {
+    width: 20px;
+    height: 20px;
+  }
+  .slider > .thumbnailsContainer {
+    justify-content: start;
+  }
+  .slider > .arrows {
+    top: 10%;
+  }
+}
