@@ -94,6 +94,7 @@ imagesContainer.addEventListener("mouseout", () => {
     next.click();
   }, 5000);
 });
+// remove event listener
 next.removeEventListener("click");
 prev.removeEventListener("click");
 dotsContainer.removeEventListener("click");
