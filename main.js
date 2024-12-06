@@ -94,3 +94,9 @@ imagesContainer.addEventListener("mouseout", () => {
     next.click();
   }, 5000);
 });
+next.removeEventListener("click");
+prev.removeEventListener("click");
+dotsContainer.removeEventListener("click");
+thumbnailsContainer.removeEventListener("click");
+imagesContainer.removeEventListener("mousemove");
+imagesContainer.removeEventListener("mouseleave");
